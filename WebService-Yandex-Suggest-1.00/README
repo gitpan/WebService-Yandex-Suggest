@@ -1,0 +1,44 @@
+NAME
+    WebService::Yandex::Suggest - Yandex Suggest as an API
+
+SYNOPSIS
+      use WebService::Yandex::Suggest;
+
+      my $suggest = WebService::Yandex::Suggest->new();
+      my @suggestions = $suggest->complete("goog");
+      for my $suggestion (@suggestions) {
+          print "$suggestion\n";
+      }
+
+DESCRIPTION
+    WebService::Yandex::Suggest allows you to use Yandex Suggest as a Web
+    Service API to retrieve completions to your search query or partial
+    query. This module is based on Tatsuhiko Miyagawa's 
+    WebService::Google::Suggest.
+
+METHODS
+    new
+          $suggest = WebService::Yandex::Suggest->new();
+
+        Creates new WebService::Yandex::Suggest object.
+
+    complete
+          @suggestions = $suggest->complete($query);
+
+        Sends your $query to Google web server and fetches suggestions for
+        the query. Suggestions are in a list
+
+    ua
+          $ua = $suggest->ua;
+
+        Returns underlying LWP::UserAgent object. It allows you to change
+        User-Agent (Windows IE by default), timeout seconds and various
+        properties.
+
+AUTHOR
+    Oleg Nikitin <olegn@stratek.ru>
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+    This module gives you NO WARRANTY.
